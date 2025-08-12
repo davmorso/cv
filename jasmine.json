@@ -1,0 +1,11 @@
+{
+  "spec_dir": "dist/cv-api/test",
+  "spec_files": [
+    "**/*.spec.js"
+  ],
+  "helpers": [
+    "../../../spec/support/jasmine.js"
+  ],
+  "stopSpecOnExpectationFailure": false,
+  "random": true
+}
