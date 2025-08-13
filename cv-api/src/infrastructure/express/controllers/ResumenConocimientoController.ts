@@ -1,9 +1,12 @@
 import { Request, Response } from 'express';
 import { ResumenConocimientoRepositoryImpl } from '../../persistence/Impl/ResumenConocimientoRepositoryImpl';
-import { InternalServerError } from '../../../shared/errors/InternalServerError';
 import { ResumenConocimientoService } from '../../../domain/services/ResumenConocimientoServices';
+import { InternalServerError } from '../../../shared/errors/InternalServerError';
+import path from 'path';
+import { environment } from '../../../config/environment';
 
-const repo = new ResumenConocimientoRepositoryImpl('ruta/al/archivo.xlsx');
+const excelPath = path.resolve(process.cwd(), environment.excelFilePath);
+const repo = new ResumenConocimientoRepositoryImpl(excelPath);
 const service = new ResumenConocimientoService(repo);
 
 export class ResumenConocimientoController {

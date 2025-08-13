@@ -10,15 +10,16 @@ export class IdiomaRepositoryImpl extends ExcelRepositoryBase<IIdioma> implement
     }
 
     protected validate(row: any): void {
-        if (!row.idioma || !row.nivel) {
+        let data = this.map(row);
+        if (!data.idioma || !data.nivel) {
             throw new Error('Faltan campos requeridos en idiomas.');
         }
     }
 
     protected map(row: any): IIdioma {
         return {
-            idioma: row.idioma,
-            nivel: row.nivel,
+            idioma: row.Idioma,
+            nivel: row.Nivel,
             observaciones: row.observaciones
         };
     }

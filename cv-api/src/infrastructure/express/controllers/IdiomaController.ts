@@ -2,8 +2,11 @@ import { Request, Response } from 'express';
 import { IdiomaRepositoryImpl } from '../../persistence/Impl/IdiomaRepositoryImpl';
 import { InternalServerError } from '../../../shared/errors/InternalServerError';
 import { IdiomaService } from '../../../domain/services/IdiomaServices';
+import path from 'path';
+import { environment } from '../../../config/environment';
 
-const repo = new IdiomaRepositoryImpl('ruta/al/archivo.xlsx');
+const excelPath = path.resolve(process.cwd(), environment.excelFilePath);
+const repo = new IdiomaRepositoryImpl(excelPath);
 const service = new IdiomaService(repo);
 
 export class IdiomaController {

@@ -67,8 +67,8 @@ class ExcelRepositoryBase {
         const rows = this.getRow();
         if (rows.length === 0)
             throw new Error('No hay datos en la hoja.');
-        this.validate(rows[0]);
-        return this.map(rows[0]);
+        this.validate(rows);
+        return this.map(rows);
     }
     getEntities() {
         const rows = this.getRow();

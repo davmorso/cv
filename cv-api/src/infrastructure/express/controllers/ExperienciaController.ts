@@ -2,8 +2,11 @@ import { Request, Response } from 'express';
 import { ExperienciaRepositoryImpl } from '../../persistence/Impl/ExperienciaRepositoryImpl';
 import { InternalServerError } from '../../../shared/errors/InternalServerError';
 import { ExperienciaService } from '../../../domain/services/ExperienciaRepositoryServices';
+import path from 'path';
+import { environment } from '../../../config/environment';
 
-const repo = new ExperienciaRepositoryImpl('ruta/al/archivo.xlsx');
+const excelPath = path.resolve(process.cwd(), environment.excelFilePath);
+const repo = new ExperienciaRepositoryImpl(excelPath);
 const service = new ExperienciaService(repo);
 
 export class ExperienciaController {

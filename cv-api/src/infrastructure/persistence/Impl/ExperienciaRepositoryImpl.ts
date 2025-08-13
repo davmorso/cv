@@ -10,7 +10,8 @@ export class ExperienciaRepositoryImpl extends ExcelRepositoryBase<IExperiencia>
     }
 
     protected validate(row: any): void {
-        if (!row.empresa || !row.puesto) {
+        let data = this.map(row);
+        if (!data.empresa || !data.puesto) {
             throw new Error('Faltan campos requeridos en experiencia.');
         }
     }
@@ -19,12 +20,12 @@ export class ExperienciaRepositoryImpl extends ExcelRepositoryBase<IExperiencia>
         return {
             fecha: row.Fecha,
             empresa: row.Empresa,
-            cliente_1: row.Cliente_1,
-            cliente_2: row.Cliente_2,
+            cliente_1: row["Cliente 1"],
+            cliente_2: row["Cliente 2"],
             puesto: row.Puesto,
             sector: row.Sector,
-            descripcion: row.Descripcion,
-            tecnologias: row.Tecnologias,
+            descripcion: row["Descripción"],  
+            tecnologias: row["Tecnologías"],
             observaciones: row.Observaciones
         };
     }

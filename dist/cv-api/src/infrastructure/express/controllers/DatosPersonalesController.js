@@ -8,7 +8,8 @@ const DatosPersonalesRepositoryImpl_1 = require("../../persistence/Impl/DatosPer
 const DatosPersonalesServices_1 = require("../../../domain/services/DatosPersonalesServices");
 const InternalServerError_1 = require("../../../shared/errors/InternalServerError");
 const path_1 = __importDefault(require("path"));
-const excelPath = path_1.default.resolve(process.cwd(), 'cv-api/data/CV_David_Mora_Roca.xlsx');
+const environment_1 = require("../../../config/environment");
+const excelPath = path_1.default.resolve(process.cwd(), environment_1.environment.excelFilePath);
 const repo = new DatosPersonalesRepositoryImpl_1.DatosPersonalesRepositoryImpl(excelPath);
 const service = new DatosPersonalesServices_1.DatosPersonalesService(repo);
 class DatosPersonalesController {

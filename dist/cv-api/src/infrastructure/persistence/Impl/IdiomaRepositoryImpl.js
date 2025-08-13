@@ -8,14 +8,15 @@ class IdiomaRepositoryImpl extends ExcelRepositoryBase_1.ExcelRepositoryBase {
         super(filePath, 'IDIOMAS');
     }
     validate(row) {
-        if (!row.idioma || !row.nivel) {
+        let data = this.map(row);
+        if (!data.idioma || !data.nivel) {
             throw new Error('Faltan campos requeridos en idiomas.');
         }
     }
     map(row) {
         return {
-            idioma: row.idioma,
-            nivel: row.nivel,
+            idioma: row.Idioma,
+            nivel: row.Nivel,
             observaciones: row.observaciones
         };
     }

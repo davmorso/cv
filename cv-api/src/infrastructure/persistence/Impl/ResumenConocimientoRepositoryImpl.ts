@@ -10,16 +10,17 @@ export class ResumenConocimientoRepositoryImpl extends ExcelRepositoryBase<IResu
     }
 
     protected validate(row: any): void {
-        if (!row.tecnologia || !row.nivel) {
+        let data = this.map(row);
+        if (!data.tecnologia || !data.nivel) {
             throw new Error('Faltan campos requeridos en resumen de conocimiento.');
         }
     }
 
     protected map(row: any): IResumenConocimiento {
         return {
-            tecnologia: row.tecnologia,
-            anyos_experiencia: Number(row.anyos_experiencia),
-            nivel: row.nivel,
+            tecnologia: row["Tecnología"],
+            anyos_experiencia: Number(row["Años experiencia"]),
+            nivel: row.Nivel, 
             observaciones: row.observaciones
         };
     }

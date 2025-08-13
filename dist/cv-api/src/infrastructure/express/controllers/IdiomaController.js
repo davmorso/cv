@@ -1,10 +1,16 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.IdiomaController = void 0;
 const IdiomaRepositoryImpl_1 = require("../../persistence/Impl/IdiomaRepositoryImpl");
 const InternalServerError_1 = require("../../../shared/errors/InternalServerError");
 const IdiomaServices_1 = require("../../../domain/services/IdiomaServices");
-const repo = new IdiomaRepositoryImpl_1.IdiomaRepositoryImpl('ruta/al/archivo.xlsx');
+const path_1 = __importDefault(require("path"));
+const environment_1 = require("../../../config/environment");
+const excelPath = path_1.default.resolve(process.cwd(), environment_1.environment.excelFilePath);
+const repo = new IdiomaRepositoryImpl_1.IdiomaRepositoryImpl(excelPath);
 const service = new IdiomaServices_1.IdiomaService(repo);
 class IdiomaController {
     static async listarIdiomas(req, res) {

@@ -8,7 +8,8 @@ class EducacionRegladaRepositoryImpl extends ExcelRepositoryBase_1.ExcelReposito
         super(filePath, 'EDUCACION REGLADA');
     }
     validate(row) {
-        if (!row.institucion || !row.titulo) {
+        let data = this.map(row);
+        if (!data.anyo || !data.formacion || !data.centro) {
             throw new Error('Faltan campos requeridos en educación reglada.');
         }
     }

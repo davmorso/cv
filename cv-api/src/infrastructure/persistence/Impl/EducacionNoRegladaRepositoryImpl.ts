@@ -12,7 +12,8 @@ export class EducacionNoRegladaRepositoryImpl
     }
 
     protected validate(row: any): void {
-        if (!row.institucion || !row.titulo) {
+        let data = this.map(row);
+        if (!data.curso || !data.plataforma || !data.anyo) {
             throw new Error('Faltan campos requeridos en educación no reglada.');
         }
     }
@@ -20,9 +21,9 @@ export class EducacionNoRegladaRepositoryImpl
     protected map(row: any): IEducacionNoReglada {
         return {
             anyo: row["Año"],
-            curso: row["Curso"],
-            plataforma: row["Plataforma"],
-            detalle: row["Detalle"],
+            curso: row["Curso / Certificación"],
+            plataforma: row["Entidad / Plataforma"],
+            detalle: row["Horas / Detalles"]
         };
     }
 

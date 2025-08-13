@@ -2,8 +2,11 @@ import { Request, Response } from 'express';
 import { EducacionNoRegladaRepositoryImpl } from '../../persistence/Impl/EducacionNoRegladaRepositoryImpl';
 import { InternalServerError } from '../../../shared/errors/InternalServerError';
 import { EducacionNoRegladaService } from '../../../domain/services/EducacionNoRegladaServices';
+import path from 'path';
+import { environment } from '../../../config/environment';
 
-const repo = new EducacionNoRegladaRepositoryImpl('ruta/al/archivo.xlsx');
+const excelPath = path.resolve(process.cwd(), environment.excelFilePath);
+const repo = new EducacionNoRegladaRepositoryImpl(excelPath);
 const service = new EducacionNoRegladaService(repo);
 
 export class EducacionNoRegladaController {

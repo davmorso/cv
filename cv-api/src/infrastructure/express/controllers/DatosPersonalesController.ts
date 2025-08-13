@@ -3,8 +3,9 @@ import { DatosPersonalesRepositoryImpl } from '../../persistence/Impl/DatosPerso
 import { DatosPersonalesService } from '../../../domain/services/DatosPersonalesServices';
 import { InternalServerError } from '../../../shared/errors/InternalServerError';
 import path from 'path';
+import { environment } from '../../../config/environment';
 
-const excelPath = path.resolve(process.cwd(), 'cv-api/data/CV_David_Mora_Roca.xlsx');
+const excelPath = path.resolve(process.cwd(), environment.excelFilePath);
 const repo = new DatosPersonalesRepositoryImpl(excelPath);
 const service = new DatosPersonalesService(repo);
 

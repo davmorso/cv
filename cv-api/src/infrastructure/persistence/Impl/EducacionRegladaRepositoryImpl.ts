@@ -7,7 +7,7 @@ export class EducacionRegladaRepositoryImpl
     extends ExcelRepositoryBase<IEducacionReglada> 
     implements IEducacionRegladaRepository {
     
-        protected sheetIndex = 1;
+    protected sheetIndex = 1;
 
     constructor(filePath: string) {
         super(filePath, 'EDUCACION REGLADA');
@@ -15,7 +15,8 @@ export class EducacionRegladaRepositoryImpl
     
     
     protected validate(row: any): void {
-        if (!row.institucion || !row.titulo) {
+        let data = this.map(row);
+        if (!data.anyo || !data.formacion || !data.centro) {
             throw new Error('Faltan campos requeridos en educación reglada.');
         }
     }

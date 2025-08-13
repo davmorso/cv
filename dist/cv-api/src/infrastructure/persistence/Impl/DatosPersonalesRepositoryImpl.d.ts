@@ -6,5 +6,6 @@ export declare class DatosPersonalesRepositoryImpl extends ExcelRepositoryBase<I
     constructor(filePath: string);
     protected validate(row: any): void;
     protected map(row: any): IDatosPersonales;
+    private toClassInstance;
     obtenerDatosPersonales(): Promise<IDatosPersonales>;
 }
