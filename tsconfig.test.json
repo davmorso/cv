@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS"
+  },
+  "include": [
+    "cv-api/src/**/*.ts",
+    "cv-api/test/**/*.ts"
+  ]
+}

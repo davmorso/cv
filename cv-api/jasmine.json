@@ -1,0 +1,8 @@
+{
+  "spec_dir": "../dist/cv-api/src/test",
+  "spec_files": [
+    "**/*.spec.js"
+  ],  
+  "stopSpecOnExpectationFailure": false,
+  "random": false
+}

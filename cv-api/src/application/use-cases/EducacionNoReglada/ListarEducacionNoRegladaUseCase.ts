@@ -8,7 +8,7 @@ export class ListarEducacionNoRegladaUseCase {
         this.educacionNoRegladaRepository = educacionNoRegladaRepository;
     }
 
-        async execute(): Promise<IEducacionNoReglada[]> {
-            return this.educacionNoRegladaRepository.listarEducacionNoReglada();
-        }
+    async execute(): Promise<IEducacionNoReglada[]> {
+        return this.educacionNoRegladaRepository.listarEducacionNoReglada();
     }
+}

@@ -26,6 +26,7 @@ export class EducacionRegladaRepositoryImpl
             anyo: row["Año"],
             formacion: row["Formación"],
             centro: row["Centro"],
+            detalle: row["Detalle"],
             observaciones: row["Observaciones"] 
         };
     }
