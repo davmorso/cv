@@ -4,15 +4,14 @@ const webpackConfig = require('./webpack.config.js');
 
 module.exports = function (config) {
   config.set({
-    frameworks: ['jasmine'],
-    files: [
-      { pattern: 'cv-api/test/**/*.spec.ts', watched: false }
-    ],
-    preprocessors: {
-      'cv-api/test/**/*.spec.ts': ['webpack'],
-      'cv-api/src/**/*.ts': ['webpack', 'coverage'] // <--- añade esta línea
-
-    },
+      frameworks: ['jasmine'],
+      files: [
+    { pattern: 'cv-api/src/test/**/*.spec.ts', watched: false }
+  ],
+  preprocessors: {
+    'cv-api/src/test/**/*.spec.ts': ['webpack'],
+    'cv-api/src/**/*.ts': ['webpack', 'coverage']
+  },
     webpack: webpackConfig,
     browsers: ['Chrome'],
     reporters: ['progress', 'spec', 'kjhtml', 'coverage'],
